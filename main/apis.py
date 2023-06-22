@@ -17,7 +17,6 @@ class CreateTransactionView(generics.CreateAPIView):
     
     def create(self, request, *args, **kwargs):
         """
-
         url: http://127.0.0.1:8000/api/transaction/
         sample payload for buy transaction:{
             "trade_type": "BUY",
@@ -69,7 +68,6 @@ class GetHoldingView(generics.RetrieveAPIView):
             raise ValidationError(detail="Invalid date format. Please use 'YYYY-MM-DD'.")
 
         transaction = Transaction.objects.filter(date__lte=date).order_by('-timestamp').first()
-        print(transaction)
         if not transaction:
             raise NotFound(detail="No transaction found for the given date.")
         return transaction
