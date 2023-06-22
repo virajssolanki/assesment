@@ -52,3 +52,12 @@ class TransactionSerializer(serializers.ModelSerializer):
             "trade_type", "qty", "price", "split_ratio", "date", 
             "avg_buy_price", "total_holding_qty", "balance_qty"
         ]
+
+
+class HoldingViewSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Transaction
+        fields = [
+            "date", "avg_buy_price", "total_holding_qty"
+        ]

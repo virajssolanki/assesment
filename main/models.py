@@ -16,7 +16,7 @@ class Transaction(models.Model):
         SPLIT = 'SPLIT'
     
     timestamp = models.DateTimeField(auto_now_add=True)
-    date = models.DateTimeField(null=False, blank=False, default=None)
+    date = models.DateField(null=False, blank=False, default=None)
     trade_type = models.CharField(max_length=5, choices=TRADE_TYPE.choices)
     qty = models.IntegerField(null=True, blank=True)
     balance_qty = models.IntegerField(null=True, blank=True)
@@ -141,6 +141,3 @@ class Transaction(models.Model):
             avg_buy_price=transactions.last().avg_buy_price,
             total_holding_qty=transactions.last().total_holding_qty,
         )
-
-                
-                
